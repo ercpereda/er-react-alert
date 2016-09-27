@@ -10,11 +10,13 @@ class Alert extends React.Component {
   }
 
   closeAlert() {
-    this.props.onCloseAlert();
+    this.props.onClose();
   }
 
   render() {
-    const alertClasses = classnames(styles.alert, styles[this.props.type]);
+    const alertClasses = classnames(styles.alert, styles[this.props.type], {
+      [styles.show]: this.props.isOpen
+    });
     const title = this.props.type[0].toUpperCase() + this.props.type.slice(1);
 
     return (
@@ -27,9 +29,10 @@ class Alert extends React.Component {
 }
 
 Alert.propTypes = {
+  isOpen: React.PropTypes.bool,
   text: React.PropTypes.string,
   type: React.PropTypes.oneOf(['danger', 'success', 'info', 'warning']),
-  onCloseAlert: React.PropTypes.func
+  onClose: React.PropTypes.func
 };
 
 export default Alert;

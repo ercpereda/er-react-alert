@@ -1,4 +1,5 @@
 .alert {
+  display: none;
   padding: 20px;
   color: white;
   margin-bottom: 15px;
@@ -17,6 +18,9 @@
 }
 .alert.warning {
   background-color: #FF9800;
+}
+.alert.show {
+  display: block;
 }
 
 .closebtn {
