@@ -1,11 +1,22 @@
 .alert {
   padding: 20px;
-  background-color: #f44336;
   color: white;
   margin-bottom: 15px;
   font-family: Verdana,sans-serif;
   font-size: 15px;
   line-height: 1.5;
+}
+.alert.danger {
+  background-color: #f44336;
+}
+.alert.success {
+  background-color: #4CAF50
+}
+.alert.info {
+  background-color: #2196F3;
+}
+.alert.warning {
+  background-color: #FF9800;
 }
 
 .closebtn {

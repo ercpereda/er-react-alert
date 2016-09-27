@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import styles from './Alert.css';
 
 class Alert extends React.Component {
@@ -13,10 +14,13 @@ class Alert extends React.Component {
   }
 
   render() {
+    const alertClasses = classnames(styles.alert, styles[this.props.type]);
+    const title = this.props.type[0].toUpperCase() + this.props.type.slice(1);
+
     return (
-      <div className={styles.alert}>
+      <div className={alertClasses}>
         <span className={styles.closebtn} onClick={this.closeAlert}>&times;</span>
-        <strong>Danger!</strong> {this.props.text}
+        <strong>{title}!</strong> {this.props.text}
       </div>
     );
   }
@@ -24,6 +28,7 @@ class Alert extends React.Component {
 
 Alert.propTypes = {
   text: React.PropTypes.string,
+  type: React.PropTypes.oneOf(['danger', 'success', 'info', 'warning']),
   onCloseAlert: React.PropTypes.func
 };
 
